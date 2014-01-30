@@ -1,5 +1,8 @@
 package uk.co.ystv.ystvbot;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.jibble.pircbot.PircBot;
 
 public class Main extends PircBot {
@@ -9,9 +12,9 @@ public class Main extends PircBot {
 	}
 	
 	public Main() throws Exception {
-		this.setName("Morrisey");
-		this.setLogin("Morrisey");
-		this.setVersion("Rabbit");
+		this.setName("Morrissey");
+		this.setLogin("Morrissey");
+		this.setVersion("Best Rabbit");
 		this.setAutoNickChange(true);
 		
 		this.setVerbose(true);
@@ -24,6 +27,15 @@ public class Main extends PircBot {
 		if (message.equalsIgnoreCase("!time")) {
 			String time = new java.util.Date().toString();
 			sendMessage(channel, sender + ": The time is now " + time);
+		} else if (message.equalsIgnoreCase("!quote")) {
+			Sql sql = Sql.getInstance();
+			ResultSet result = sql.query("SELECT * FROM quotes ORDER BY RANDOM() * log(id) DESC LIMIT 1");
+			try {
+				sendMessage(channel, sender + ": '" + result.getString("quote") + "' - " + result.getString("description"));
+			} catch (SQLException e) {
+				sendMessage(channel, sender + ": Error getting quote, sorry :(");
+				e.printStackTrace();
+			}
 		}
 	}
 
