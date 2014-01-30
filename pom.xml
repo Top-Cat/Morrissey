@@ -68,6 +68,12 @@
 										<exclude>**/*.java</exclude>
 									</excludes>
 								</filter>
+								<filter>
+									<artifact>mysql:*</artifact>
+									<includes>
+										<include>**</include>
+									</includes>
+								</filter>
 							</filters>
 						</configuration>
 					</execution>
