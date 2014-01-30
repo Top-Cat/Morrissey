@@ -19,8 +19,12 @@ public class Main extends PircBot {
 		
 		this.setVerbose(true);
 		this.connect("irc.freenode.net");
-		this.identify("rubberprovideproductwide");
 		this.joinChannel("#YSTV");
+	}
+	
+	@Override
+	protected void onConnect() {
+		sendMessage("Top_Cat", "/ns identify Morrisey rubberprovideproductwide");
 	}
 	
 	@Override
