@@ -24,7 +24,7 @@ public class Main extends PircBot {
 	
 	@Override
 	protected void onConnect() {
-		sendMessage("Top_Cat", "/ns identify Morrisey rubberprovideproductwide");
+		sendRawLine("NICKSERV IDENTIFY Morrisey rubberprovideproductwide");
 	}
 	
 	@Override
