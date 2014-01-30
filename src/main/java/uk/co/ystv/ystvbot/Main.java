@@ -12,10 +12,11 @@ public class Main extends PircBot {
 	}
 	
 	public Main() throws Exception {
-		this.setName("Morrissey");
-		this.setLogin("Morrissey");
+		this.setName("Morrisey");
+		this.setLogin("Morrisey");
 		this.setVersion("Best Rabbit");
 		this.setAutoNickChange(true);
+		this.identify("rubberprovideproductwide");
 		
 		this.setVerbose(true);
 		this.connect("irc.freenode.net");
