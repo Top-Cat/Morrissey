@@ -31,7 +31,7 @@ public class Main extends PircBot {
 			Sql sql = Sql.getInstance();
 			ResultSet result = sql.query("SELECT * FROM quotes ORDER BY RANDOM() * log(id) DESC LIMIT 1");
 			try {
-				result.first();
+				result.next();
 				sendMessage(channel, sender + ": '" + result.getString("quote") + "' - " + result.getString("description"));
 			} catch (SQLException e) {
 				sendMessage(channel, sender + ": Error getting quote, sorry :(");
