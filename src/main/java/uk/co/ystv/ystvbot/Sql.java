@@ -23,7 +23,7 @@ public class Sql {
 
 	public Sql() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("org.postgresql.Driver").newInstance();
 			conn = DriverManager.getConnection(url);
 		} catch (final InstantiationException e) {
 			e.printStackTrace();

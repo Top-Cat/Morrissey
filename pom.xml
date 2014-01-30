@@ -69,7 +69,7 @@
 									</excludes>
 								</filter>
 								<filter>
-									<artifact>mysql:*</artifact>
+									<artifact>postgresql:*</artifact>
 									<includes>
 										<include>**</include>
 									</includes>
