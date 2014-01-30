@@ -16,10 +16,10 @@ public class Main extends PircBot {
 		this.setLogin("Morrisey");
 		this.setVersion("Best Rabbit");
 		this.setAutoNickChange(true);
-		this.identify("rubberprovideproductwide");
 		
 		this.setVerbose(true);
 		this.connect("irc.freenode.net");
+		this.identify("rubberprovideproductwide");
 		this.joinChannel("#YSTV");
 	}
 	
