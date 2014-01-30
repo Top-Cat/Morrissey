@@ -5,15 +5,18 @@ import org.jibble.pircbot.PircBot;
 public class Main extends PircBot {
 	
 	public static void main(String[] args) throws Exception {
-		Main main = new Main();
-		
-		main.setVerbose(true);
-		main.connect("irc.freenode.net");
-		main.joinChannel("#YSTV");
+		new Main();
 	}
 	
-	public Main() {
+	public Main() throws Exception {
 		this.setName("Morrisey");
+		this.setLogin("Morrisey");
+		this.setVersion("Rabbit");
+		this.setAutoNickChange(true);
+		
+		this.setVerbose(true);
+		this.connect("irc.freenode.net");
+		this.joinChannel("#YSTV");
 	}
 	
 	@Override
