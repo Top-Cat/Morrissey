@@ -14,6 +14,9 @@ import org.yaml.snakeyaml.Yaml;
 public class Main extends PircBot {
 	
 	public static void main(String[] args) throws Exception {
+		System.setProperty("http.proxyHost", "wwwcache.york.ac.uk");
+		System.setProperty("http.proxyPort", "8080");
+		
 		new Main();
 	}
 	
@@ -50,7 +53,6 @@ public class Main extends PircBot {
 			}
 		} else if (message.equalsIgnoreCase("!weather")) {
 			sendMessage(channel, sender + ": " + getWeather());
-			
 		}
 	}
 
