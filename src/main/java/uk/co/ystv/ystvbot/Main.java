@@ -38,6 +38,10 @@ public class Main extends PircBot {
 	
 	@Override
 	protected void onMessage(String channel, String sender, String login, String hostname, String message) {
+		if (!this.getNick().equals("Morrisey")) {
+			this.setName("Morrisey");
+		}
+		
 		if (message.equalsIgnoreCase("!time")) {
 			String time = new java.util.Date().toString();
 			sendMessage(channel, sender + ": The time is now " + time);
