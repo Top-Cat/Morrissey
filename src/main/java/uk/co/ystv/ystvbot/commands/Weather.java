@@ -27,7 +27,12 @@ public class Weather extends ListenerAdapter<PircBotX> {
 			Map<String, Object> map = (Map<String, Object>) yaml.load(new URL("http://api.openweathermap.org/data/2.5/weather?q=York,UK").openStream());
 			List<Object> list = (List<Object>) map.get("weather");
 			map = (Map<String, Object>) list.get(0);
-			return (String) map.get("main");
+			Map<String, Object> main = (Map<String, Object>) map.get("main");
+			Map<String, Object> wind = (Map<String, Object>) map.get("wind");
+			String[] dirs = new String[] {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
+			String wind_direction = dirs[(((((Integer) wind.get("deg")) + 22) / 45) % 8)];
+			
+			return (String) map.get("main") + ", Wind: " + wind.get("speed") + "mph (" + wind_direction + "), Temperature: " + main.get("temp") + "°C (Min: " + main.get("temp_min") + "°C, Max: " + main.get("temp_max") + "°C)";
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
