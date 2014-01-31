@@ -24,7 +24,7 @@ public class Weather extends ListenerAdapter<PircBotX> {
 	private String getWeather() {
 		try {
 			Yaml yaml = new Yaml();
-			Map<String, Object> map = (Map<String, Object>) yaml.load(new URL("http://api.openweathermap.org/data/2.5/weather?q=York,UK").openStream());
+			Map<String, Object> map = (Map<String, Object>) yaml.load(new URL("http://api.openweathermap.org/data/2.5/weather?q=York,UK&units=metric").openStream());
 			List<Object> list = (List<Object>) map.get("weather");
 			Map<String, Object> main = (Map<String, Object>) map.get("main");
 			Map<String, Object> wind = (Map<String, Object>) map.get("wind");
