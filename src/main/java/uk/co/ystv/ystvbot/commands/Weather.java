@@ -16,7 +16,7 @@ public class Weather extends ListenerAdapter<PircBotX> {
 	@Override
 	public void onMessage(MessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().equalsIgnoreCase("!weather")) {
-			event.respond(event.getUser().getNick() + getWeather());
+			event.respond(getWeather());
 		}
 	}
 	

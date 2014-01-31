@@ -18,9 +18,9 @@ public class Quote extends ListenerAdapter<PircBotX> {
 			ResultSet result = sql.query("SELECT * FROM quotes ORDER BY RANDOM() * log(id) DESC LIMIT 1");
 			try {
 				result.next();
-				event.respond(event.getUser().getNick() + ": '" + result.getString("quote") + "' - " + result.getString("description"));
+				event.respond("'" + result.getString("quote") + "' - " + result.getString("description"));
 			} catch (SQLException e) {
-				event.respond(event.getUser().getNick() + ": Error getting quote, sorry :(");
+				event.respond("Error getting quote, sorry :(");
 				e.printStackTrace();
 			}
 		}
