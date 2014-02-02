@@ -80,7 +80,7 @@
 									</includes>
 								</filter>
 								<filter>
-									<artifact>slf4j:*</artifact>
+									<artifact>org.slf4j:*</artifact>
 									<includes>
 										<include>**</include>
 									</includes>
