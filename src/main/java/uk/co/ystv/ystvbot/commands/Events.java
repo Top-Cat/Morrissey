@@ -22,8 +22,7 @@ public class Events extends ListenerAdapter<PircBotX> {
 			Sql sql = Sql.getInstance();
 			ResultSet result = sql.query("SELECT name, start_date, end_time, location FROM events WHERE start_date >= now() + interval '60 minutes' AND start_date <= now() + interval '120 minutes' AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC");
 			try {
-				while (!result.isLast() && !result.isAfterLast()) {
-					result.next();
+				while (result.next()) {
 					Main.bot.sendIRC().message("#YSTV", "Upcoming event: '" + result.getString("name") + "' in '" + result.getString("location") + "' starting at '" + result.getString("start_date") + "' and ending at '" + result.getString("end_time") + "'");
 				}
 			} catch (SQLException e) {
@@ -57,8 +56,7 @@ public class Events extends ListenerAdapter<PircBotX> {
 			Sql sql = Sql.getInstance();
 			ResultSet result = sql.query("SELECT name, end_time, location FROM events WHERE date_trunc('day', start_date) = date_trunc('day', now()) AND end_time > current_time AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC");
 			try {
-				while (!result.isLast()) {
-					result.next();
+				while (result.next()) {
 					event.respond("'" + result.getString("name") + "' in '" + result.getString("location") + "' ending at '" + result.getString("end_time") + "'");
 				}
 			} catch (SQLException e) {
