@@ -11,7 +11,8 @@ import org.pircbotx.hooks.ListenerAdapter;
 public enum Commands {
 	Quote(Quote.class),
 	Time(Time.class),
-	Weather(Weather.class);
+	Weather(Weather.class),
+	Link(Link.class);
 	
 	public static Set<ListenerAdapter<PircBotX>> listeners = new HashSet<ListenerAdapter<PircBotX>>();
 	
