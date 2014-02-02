@@ -13,6 +13,8 @@ public class Main extends ListenerAdapter<PircBotX> {
 	public static void main(String[] args) throws Exception {
 		System.setProperty("http.proxyHost", "wwwcache.york.ac.uk");
 		System.setProperty("http.proxyPort", "8080");
+		System.setProperty("https.proxyHost", "wwwcache.york.ac.uk");
+		System.setProperty("https.proxyPort", "8080");
 		
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
 				.setName("Morrisey")
