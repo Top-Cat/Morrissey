@@ -28,11 +28,11 @@ public class Coin extends ListenerAdapter<PircBotX> {
 			}
 			
 			if (num == 1) {
-				System.out.println(String.format("Flips a coin and gets %s", heads == 1 ? "heads" : "tails"));
+				event.respond(String.format("Flips a coin and gets %s", heads == 1 ? "heads" : "tails"));
 			} else if (num < 1) {
-				System.out.println("Makes a coin flipping motion with its paws");
+				event.respond("Makes a coin flipping motion with its paws");
 			} else {
-				System.out.println(String.format("Flips %d coins and gets %d heads and %d tails", num, heads, num - heads));
+				event.respond(String.format("Flips %d coins and gets %d heads and %d tails", num, heads, num - heads));
 			}
 		}
 	}
