@@ -3,7 +3,7 @@
 	<groupId>uk.co.ystv</groupId>
 	<artifactId>ystvbot</artifactId>
 	<version>dev-SNAPSHOT</version>
-	<name>YSTV Bot</name>
+	<name>Morrissey</name>
 	<description>IRC Bot for YSTV</description>
 	<dependencies>
 		<dependency>
@@ -75,6 +75,12 @@
 								</filter>
 								<filter>
 									<artifact>postgresql:*</artifact>
+									<includes>
+										<include>**</include>
+									</includes>
+								</filter>
+								<filter>
+									<artifact>slf4j:*</artifact>
 									<includes>
 										<include>**</include>
 									</includes>
