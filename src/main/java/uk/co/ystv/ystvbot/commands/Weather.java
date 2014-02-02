@@ -32,7 +32,7 @@ public class Weather extends ListenerAdapter<PircBotX> {
 			String[] dirs = new String[] {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
 			String wind_direction = dirs[(((((Integer) wind.get("deg")) + 22) / 45) % 8)];
 			
-			return map.get("main") + ", Wind: " + wind.get("speed") + "mph (" + wind_direction + "), Temperature: " + main.get("temp") + "°C (Min: " + main.get("temp_min") + "°C, Max: " + main.get("temp_max") + "°C)";
+			return map.get("main") + ", Wind: " + wind.get("speed") + "m/s (" + wind_direction + "), Temperature: " + main.get("temp") + "C (Min: " + main.get("temp_min") + "C, Max: " + main.get("temp_max") + "C)";
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
