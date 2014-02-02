@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
-import org.pircbotx.hooks.events.MessageEvent;
+import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.Sql;
 
 public class Quote extends ListenerAdapter<PircBotX> {
 	
 	@Override
-	public void onMessage(MessageEvent<PircBotX> event) throws Exception {
+	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().startsWith("!quote")) {
 			String query = "";
 			if (event.getMessage().length() > 7) {

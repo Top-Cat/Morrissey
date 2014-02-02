@@ -4,7 +4,7 @@ import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.cap.SASLCapHandler;
 import org.pircbotx.hooks.ListenerAdapter;
-import org.pircbotx.hooks.events.MessageEvent;
+import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.commands.Commands;
 
@@ -35,7 +35,7 @@ public class Main extends ListenerAdapter<PircBotX> {
 	}
 	
 	@Override
-	public void onMessage(MessageEvent<PircBotX> event) throws Exception {
+	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (!event.getBot().getNick().equals("Morrisey")) {
 			event.getBot().sendRaw().rawLineNow("NICK Morrisey");
 		}

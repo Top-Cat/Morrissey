@@ -4,14 +4,14 @@ import java.util.Random;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
-import org.pircbotx.hooks.events.MessageEvent;
+import org.pircbotx.hooks.types.GenericMessageEvent;
 
 public class Coin extends ListenerAdapter<PircBotX> {
 	
 	Random random = new Random();
 	
 	@Override
-	public void onMessage(MessageEvent<PircBotX> event) throws Exception {
+	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().startsWith("!coin")) {
 			int num = 1;
 			if (event.getMessage().length() > 6) {
