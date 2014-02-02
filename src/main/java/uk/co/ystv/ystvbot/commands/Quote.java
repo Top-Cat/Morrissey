@@ -14,7 +14,10 @@ public class Quote extends ListenerAdapter<PircBotX> {
 	@Override
 	public void onMessage(MessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().startsWith("!quote")) {
-			String query = event.getMessage().substring(7);
+			String query = "";
+			if (event.getMessage().length() > 7) {
+				event.getMessage().substring(7);
+			}
 			String sqlQuery = "SELECT * FROM quotes";
 			
 			if (query.length() > 0) {
