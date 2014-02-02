@@ -10,6 +10,8 @@ import uk.co.ystv.ystvbot.commands.Commands;
 
 public class Main extends ListenerAdapter<PircBotX> {
 	
+	public static PircBotX bot;
+	
 	public static void main(String[] args) throws Exception {
 		System.setProperty("http.proxyHost", "wwwcache.york.ac.uk");
 		System.setProperty("http.proxyPort", "8080");
@@ -31,7 +33,8 @@ public class Main extends ListenerAdapter<PircBotX> {
 			builder.addListener(listener);
 		}
 		
-		new PircBotX(builder.buildConfiguration()).startBot();
+		bot = new PircBotX(builder.buildConfiguration());
+		bot.startBot();
 	}
 	
 	@Override

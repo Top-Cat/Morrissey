@@ -13,7 +13,8 @@ public enum Commands {
 	Time(Time.class),
 	Weather(Weather.class),
 	Link(Link.class),
-	Coin(Coin.class);
+	Coin(Coin.class),
+	Events(Events.class);
 	
 	public static Set<ListenerAdapter<PircBotX>> listeners = new HashSet<ListenerAdapter<PircBotX>>();
 	
