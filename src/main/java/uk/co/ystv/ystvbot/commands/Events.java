@@ -20,7 +20,7 @@ public class Events extends ListenerAdapter<PircBotX> {
 		public void run() {
 			// Look for events
 			Sql sql = Sql.getInstance();
-			ResultSet result = sql.query("SELECT name, start_date, end_time, location FROM events WHERE start_date >= now() + interval '60 minutes' AND start_date <= now() + interval '120 minutes' AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC");
+			ResultSet result = sql.query("SELECT name, start_date AT TIME ZONE 'GMT', end_time, location FROM events WHERE start_date >= now() + interval '60 minutes' AND start_date <= now() + interval '120 minutes' AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC");
 			try {
 				while (result.next()) {
 					Main.bot.sendIRC().message("#YSTV", "Upcoming event: '" + result.getString("name") + "' in '" + result.getString("location") + "' starting at '" + result.getString("start_date") + "' and ending at '" + result.getString("end_time") + "'");
@@ -44,7 +44,7 @@ public class Events extends ListenerAdapter<PircBotX> {
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().equalsIgnoreCase("!nextevent")) {
 			Sql sql = Sql.getInstance();
-			ResultSet result = sql.query("SELECT name, start_date, end_time, location FROM events WHERE start_date > NOW() AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC LIMIT 1");
+			ResultSet result = sql.query("SELECT name, start_date AT TIME ZONE 'GMT', end_time, location FROM events WHERE start_date > NOW() AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC LIMIT 1");
 			try {
 				result.next();
 				event.respond("The next event is '" + result.getString("name") + "' in '" + result.getString("location") + "' starting at '" + result.getString("start_date") + "' and ending at '" + result.getString("end_time") + "'");
