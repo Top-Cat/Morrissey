@@ -22,7 +22,7 @@ public class Events extends ListenerAdapter<PircBotX> {
 			Sql sql = Sql.getInstance();
 			ResultSet result = sql.query("SELECT name, start_date, end_time, location FROM events WHERE start_date >= now() + interval '60 minutes' AND start_date <= now() + interval '120 minutes' AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC");
 			try {
-				while (!result.isLast()) {
+				while (!result.isLast() && !result.isAfterLast()) {
 					result.next();
 					Main.bot.sendIRC().message("#YSTV", "Upcoming event: '" + result.getString("name") + "' in '" + result.getString("location") + "' starting at '" + result.getString("start_date") + "' and ending at '" + result.getString("end_time") + "'");
 				}
