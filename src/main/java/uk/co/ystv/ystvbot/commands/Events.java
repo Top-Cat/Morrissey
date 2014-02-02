@@ -37,7 +37,7 @@ public class Events extends ListenerAdapter<PircBotX> {
 	
 	public Events() {
 		int period = 1 * 60 * 60 * 1000;
-		t.schedule(eventThread, 0, period);
+		t.schedule(eventThread, 30 * 1000, period);
 	}
 	
 	@Override
