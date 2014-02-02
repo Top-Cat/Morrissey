@@ -20,6 +20,7 @@ public class Main extends ListenerAdapter<PircBotX> {
 		
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
 				.setName("Morrisey")
+				.setRealName("Best Rabbit")
 				.setLogin("Morrisey")
 				.setVersion("Best Rabbit")
 				.setAutoNickChange(true)
