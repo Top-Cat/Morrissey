@@ -18,7 +18,18 @@ public class Main extends ListenerAdapter<PircBotX> {
 		System.setProperty("https.proxyHost", "wwwcache.york.ac.uk");
 		System.setProperty("https.proxyPort", "8080");
 
-		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>().setName("Morrisey").setRealName("Best Rabbit").setLogin("Morrisey").setVersion("Best Rabbit").setAutoNickChange(true).setCapEnabled(true).addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide")).addListener(new Main()).setServerHostname("irc.freenode.net").addAutoJoinChannel("#YSTV").setAutoReconnect(true);
+		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
+				.setName("Morrisey")
+				.setRealName("Best Rabbit")
+				.setLogin("Morrisey")
+				.setVersion("Best Rabbit")
+				.setAutoNickChange(true)
+				.setCapEnabled(true)
+				.addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide"))
+				.addListener(new Main())
+				.setServerHostname("irc.freenode.net")
+				.addAutoJoinChannel("#YSTV")
+				.setAutoReconnect(true);
 
 		for (ListenerAdapter<PircBotX> listener : Commands.listeners) {
 			builder.addListener(listener);
