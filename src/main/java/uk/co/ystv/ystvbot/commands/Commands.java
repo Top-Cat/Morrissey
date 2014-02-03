@@ -14,7 +14,8 @@ public enum Commands {
 	Weather(Weather.class),
 	Link(Link.class),
 	Coin(Coin.class),
-	Events(Events.class);
+	Events(Events.class),
+	Help(Help.class);
 
 	public static Set<ListenerAdapter<PircBotX>> listeners = new HashSet<ListenerAdapter<PircBotX>>();
 
