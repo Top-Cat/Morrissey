@@ -13,7 +13,7 @@ import uk.co.ystv.ystvbot.Main;
 import uk.co.ystv.ystvbot.Sql;
 
 public class Events extends ListenerAdapter<PircBotX> {
-	
+
 	private class EventThread extends TimerTask {
 
 		@Override
@@ -29,17 +29,17 @@ public class Events extends ListenerAdapter<PircBotX> {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 	private Timer t = new Timer();
 	private EventThread eventThread = new EventThread();
-	
+
 	public Events() {
 		int period = 1 * 60 * 60 * 1000;
-		t.schedule(eventThread, 30 * 1000, period);
+		this.t.schedule(this.eventThread, 30 * 1000, period);
 	}
-	
+
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().equalsIgnoreCase("!nextevent")) {
@@ -65,5 +65,5 @@ public class Events extends ListenerAdapter<PircBotX> {
 			}
 		}
 	}
-	
+
 }

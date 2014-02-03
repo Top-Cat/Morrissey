@@ -7,9 +7,9 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 public class Coin extends ListenerAdapter<PircBotX> {
-	
+
 	Random random = new Random();
-	
+
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().startsWith("!coin")) {
@@ -21,12 +21,13 @@ public class Coin extends ListenerAdapter<PircBotX> {
 					e.printStackTrace();
 				}
 			}
-			
-			int heads = 0; // Better way to calculate this? Probably not for small num
+
+			int heads = 0; // Better way to calculate this? Probably not for
+							// small num
 			for (int i = 0; i < num; i++) {
-				heads += random.nextInt(2);
+				heads += this.random.nextInt(2);
 			}
-			
+
 			if (num == 1) {
 				event.respond(String.format("Flips a coin and gets %s", heads == 1 ? "heads" : "tails"));
 			} else if (num < 1) {
@@ -36,5 +37,5 @@ public class Coin extends ListenerAdapter<PircBotX> {
 			}
 		}
 	}
-	
+
 }

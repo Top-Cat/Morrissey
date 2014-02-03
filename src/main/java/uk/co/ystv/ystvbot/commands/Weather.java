@@ -12,14 +12,14 @@ import org.pircbotx.hooks.types.GenericMessageEvent;
 import org.yaml.snakeyaml.Yaml;
 
 public class Weather extends ListenerAdapter<PircBotX> {
-	
+
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().equalsIgnoreCase("!weather")) {
-			event.respond(getWeather());
+			event.respond(this.getWeather());
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private String getWeather() {
 		try {
@@ -29,9 +29,9 @@ public class Weather extends ListenerAdapter<PircBotX> {
 			Map<String, Object> main = (Map<String, Object>) map.get("main");
 			Map<String, Object> wind = (Map<String, Object>) map.get("wind");
 			map = (Map<String, Object>) list.get(0);
-			String[] dirs = new String[] {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
-			String wind_direction = dirs[(((((Integer) wind.get("deg")) + 22) / 45) % 8)];
-			
+			String[] dirs = new String[] { "N", "NE", "E", "SE", "S", "SW", "W", "NW" };
+			String wind_direction = dirs[((Integer) wind.get("deg") + 22) / 45 % 8];
+
 			return map.get("main") + ", Wind: " + wind.get("speed") + "m/s (" + wind_direction + "), Temperature: " + main.get("temp") + "C (Min: " + main.get("temp_min") + "C, Max: " + main.get("temp_max") + "C)";
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -40,5 +40,5 @@ public class Weather extends ListenerAdapter<PircBotX> {
 		}
 		return "Unknown";
 	}
-	
+
 }

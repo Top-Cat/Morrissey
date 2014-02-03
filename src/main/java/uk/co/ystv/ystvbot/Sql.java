@@ -8,23 +8,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Sql {
-	
+
 	private static String url = "jdbc:postgresql://ystv.co.uk/ystv?user=ystvweb&password=D5ZEwcfG7r69AeN&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";
 	private static Sql sql;
-	
+
 	public static Sql getInstance() {
-		if (sql == null) {
-			sql = new Sql();
+		if (Sql.sql == null) {
+			Sql.sql = new Sql();
 		}
-		return sql;
+		return Sql.sql;
 	}
-	
+
 	private Connection conn;
 
 	public Sql() {
 		try {
 			Class.forName("org.postgresql.Driver").newInstance();
-			conn = DriverManager.getConnection(url);
+			this.conn = DriverManager.getConnection(Sql.url);
 		} catch (final InstantiationException e) {
 			e.printStackTrace();
 		} catch (final IllegalAccessException e) {
@@ -38,7 +38,7 @@ public class Sql {
 
 	public int update(String sql) {
 		try {
-			final PreparedStatement pr = conn.prepareStatement(sql);
+			final PreparedStatement pr = this.conn.prepareStatement(sql);
 			int count = pr.executeUpdate();
 			return count;
 		} catch (final SQLException e) {
@@ -49,10 +49,10 @@ public class Sql {
 
 	public int insert(String sql, Object[] values) {
 		try {
-			final PreparedStatement pr = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			final PreparedStatement pr = this.conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			if (values != null) {
 				for (int i = 1; i <= values.length; i++) {
-					setValue(pr, i, values[i - 1]);
+					this.setValue(pr, i, values[i - 1]);
 				}
 			}
 			pr.executeUpdate();
@@ -67,15 +67,15 @@ public class Sql {
 	}
 
 	public ResultSet query(String sql) {
-		return query(sql, null);
+		return this.query(sql, null);
 	}
-	
+
 	public ResultSet query(String sql, Object[] values) {
 		try {
-			final PreparedStatement pr = conn.prepareStatement(sql);
+			final PreparedStatement pr = this.conn.prepareStatement(sql);
 			if (values != null) {
 				for (int i = 1; i <= values.length; i++) {
-					setValue(pr, i, values[i - 1]);
+					this.setValue(pr, i, values[i - 1]);
 				}
 			}
 			ResultSet results = pr.executeQuery();

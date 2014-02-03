@@ -15,20 +15,20 @@ public enum Commands {
 	Link(Link.class),
 	Coin(Coin.class),
 	Events(Events.class);
-	
+
 	public static Set<ListenerAdapter<PircBotX>> listeners = new HashSet<ListenerAdapter<PircBotX>>();
-	
+
 	private Class<? extends ListenerAdapter<PircBotX>> clazz;
-	
+
 	private Commands(Class<? extends ListenerAdapter<PircBotX>> clazz) {
 		this.clazz = clazz;
 	}
-	
+
 	static {
-		for (Commands cmd : values()) {
+		for (Commands cmd : Commands.values()) {
 			try {
 				final Constructor<? extends ListenerAdapter<PircBotX>> c = cmd.clazz.getDeclaredConstructor(new Class[] {});
-				listeners.add(c.newInstance());
+				Commands.listeners.add(c.newInstance());
 			} catch (final NoSuchMethodException e) {
 				e.printStackTrace();
 			} catch (final SecurityException e) {

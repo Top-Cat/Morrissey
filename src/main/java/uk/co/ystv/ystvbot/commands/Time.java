@@ -5,7 +5,7 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 public class Time extends ListenerAdapter<PircBotX> {
-	
+
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
 		if (event.getMessage().equalsIgnoreCase("!time")) {
@@ -13,5 +13,5 @@ public class Time extends ListenerAdapter<PircBotX> {
 			event.respond("The time is now " + time);
 		}
 	}
-	
+
 }
