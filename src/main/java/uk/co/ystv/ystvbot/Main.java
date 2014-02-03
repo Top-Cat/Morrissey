@@ -27,7 +27,7 @@ public class Main extends ListenerAdapter<PircBotX> {
 				.setCapEnabled(true)
 				.addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide"))
 				.addListener(new Main())
-				.setServerHostname("irc.freenode.net")
+				.setServerHostname("wolfe.freenode.net")
 				.addAutoJoinChannel("#YSTV")
 				.setAutoReconnect(true);
 
