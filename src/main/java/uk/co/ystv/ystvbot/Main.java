@@ -4,6 +4,7 @@ import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.cap.SASLCapHandler;
 import org.pircbotx.hooks.ListenerAdapter;
+import org.pircbotx.hooks.events.DisconnectEvent;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.commands.Commands;
@@ -28,7 +29,8 @@ public class Main extends ListenerAdapter<PircBotX> {
 				.addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide"))
 				.addListener(new Main())
 				.setServerHostname("irc.freenode.net")
-				.addAutoJoinChannel("#YSTV");
+				.addAutoJoinChannel("#YSTV")
+				.setAutoReconnect(true);
 		
 		for (ListenerAdapter<PircBotX> listener : Commands.listeners) {
 			builder.addListener(listener);
