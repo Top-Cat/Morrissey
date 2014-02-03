@@ -6,13 +6,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.Main;
 import uk.co.ystv.ystvbot.Sql;
 
-public class Events extends ListenerAdapter<PircBotX> {
+public class Events extends Command {
 
 	private class EventThread extends TimerTask {
 
@@ -64,6 +63,11 @@ public class Events extends ListenerAdapter<PircBotX> {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@Override
+	String helpText() {
+		return "!nextevent - Upcoming events! / !currentevents - What's happening now?";
 	}
 
 }

@@ -4,12 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.util.GetTitle;
 
-public class Link extends ListenerAdapter<PircBotX> {
+public class Link extends Command {
 
 	private Pattern pattern;
 

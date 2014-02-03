@@ -7,11 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 import org.yaml.snakeyaml.Yaml;
 
-public class Weather extends ListenerAdapter<PircBotX> {
+public class Weather extends Command {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
@@ -39,6 +38,11 @@ public class Weather extends ListenerAdapter<PircBotX> {
 			e.printStackTrace();
 		}
 		return "Unknown";
+	}
+	
+	@Override
+	String helpText() {
+		return "!weather - Looks outside so you don't have to!";
 	}
 
 }

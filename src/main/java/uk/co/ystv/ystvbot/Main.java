@@ -3,12 +3,12 @@ package uk.co.ystv.ystvbot;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.cap.SASLCapHandler;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
+import uk.co.ystv.ystvbot.commands.Command;
 import uk.co.ystv.ystvbot.commands.Commands;
 
-public class Main extends ListenerAdapter<PircBotX> {
+public class Main extends Command {
 
 	public static PircBotX bot;
 
@@ -27,11 +27,11 @@ public class Main extends ListenerAdapter<PircBotX> {
 				.setCapEnabled(true)
 				.addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide"))
 				.addListener(new Main())
-				.setServerHostname("wolfe.freenode.net")
+				.setServerHostname("holmes.freenode.net")
 				.addAutoJoinChannel("#YSTV")
 				.setAutoReconnect(true);
 
-		for (ListenerAdapter<PircBotX> listener : Commands.listeners) {
+		for (Command listener : Commands.listeners) {
 			builder.addListener(listener);
 		}
 

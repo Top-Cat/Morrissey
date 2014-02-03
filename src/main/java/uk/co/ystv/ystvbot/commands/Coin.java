@@ -3,10 +3,9 @@ package uk.co.ystv.ystvbot.commands;
 import java.util.Random;
 
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
-public class Coin extends ListenerAdapter<PircBotX> {
+public class Coin extends Command {
 
 	Random random = new Random();
 
@@ -36,6 +35,11 @@ public class Coin extends ListenerAdapter<PircBotX> {
 				event.respond(String.format("Flips %d coins and gets %d heads and %d tails", num, heads, num - heads));
 			}
 		}
+	}
+	
+	@Override
+	String helpText() {
+		return "!coin [number] - Since the committee frowns upon duels, this is the next best way to settle your disputes!";
 	}
 
 }

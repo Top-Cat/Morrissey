@@ -5,8 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.ListenerAdapter;
+import lombok.Getter;
+import lombok.Setter;
 
 public enum Commands {
 	Quote(Quote.class),
@@ -17,19 +17,22 @@ public enum Commands {
 	Events(Events.class),
 	Help(Help.class);
 
-	public static Set<ListenerAdapter<PircBotX>> listeners = new HashSet<ListenerAdapter<PircBotX>>();
+	public static Set<Command> listeners = new HashSet<Command>();
 
-	private Class<? extends ListenerAdapter<PircBotX>> clazz;
+	private Class<? extends Command> clazz;
+	@Getter @Setter private Command obj;
 
-	private Commands(Class<? extends ListenerAdapter<PircBotX>> clazz) {
+	private Commands(Class<? extends Command> clazz) {
 		this.clazz = clazz;
 	}
 
 	static {
 		for (Commands cmd : Commands.values()) {
 			try {
-				final Constructor<? extends ListenerAdapter<PircBotX>> c = cmd.clazz.getDeclaredConstructor(new Class[] {});
-				Commands.listeners.add(c.newInstance());
+				final Constructor<? extends Command> c = cmd.clazz.getDeclaredConstructor(new Class[] {});
+				Command obj = c.newInstance(); 
+				Commands.listeners.add(obj);
+				cmd.setObj(obj);
 			} catch (final NoSuchMethodException e) {
 				e.printStackTrace();
 			} catch (final SecurityException e) {

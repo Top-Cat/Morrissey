@@ -4,12 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.Sql;
 
-public class Quote extends ListenerAdapter<PircBotX> {
+public class Quote extends Command {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
@@ -37,6 +36,11 @@ public class Quote extends ListenerAdapter<PircBotX> {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@Override
+	String helpText() {
+		return "!quote [query] - Returns a random quote!";
 	}
 
 }
