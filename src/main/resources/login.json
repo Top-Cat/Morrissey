@@ -1,7 +1,7 @@
 {
    sql: {
       user: '%sql_user%',
-      pass: '%sql_pass%'
+      pass: '%sql_pass%',
       db: '%sql_db%'
    },
    nickserv: {
