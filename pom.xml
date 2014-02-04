@@ -58,6 +58,44 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.2</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<file>target/classes/login.json</file>
+					<replacements>
+						<replacement>
+							<token>%sql_user%</token>
+							<value>${sql.user}</value>
+						</replacement>
+						<replacement>
+							<token>%sql_pass%</token>
+							<value>${sql.pass}</value>
+						</replacement>
+						<replacement>
+							<token>%sql_db%</token>
+							<value>${sql.db}</value>
+						</replacement>
+						<replacement>
+							<token>%ns_user%</token>
+							<value>${ns.user}</value>
+						</replacement>
+						<replacement>
+							<token>%ns_pass%</token>
+							<value>${ns.pass}</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>1.6</version>

@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class Sql {
 
-	private static String url = "jdbc:postgresql://ystv.co.uk/ystv?user=ystvweb&password=D5ZEwcfG7r69AeN&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";
+	private static String url = "jdbc:postgresql://ystv.co.uk/" + Main.logins.get("sql").get("db") + "?user=" + Main.logins.get("sql").get("user") + "&password=" + Main.logins.get("sql").get("pass") + "&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";
 	private static Sql sql;
 
 	public static Sql getInstance() {

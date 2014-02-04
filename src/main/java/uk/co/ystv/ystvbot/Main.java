@@ -1,22 +1,31 @@
 package uk.co.ystv.ystvbot;
 
+import java.io.InputStreamReader;
+import java.util.Map;
+
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.cap.SASLCapHandler;
 import org.pircbotx.hooks.types.GenericMessageEvent;
+import org.yaml.snakeyaml.Yaml;
 
 import uk.co.ystv.ystvbot.commands.Command;
 import uk.co.ystv.ystvbot.commands.Commands;
 
 public class Main extends Command {
 
+	public static Yaml yaml = new Yaml();
 	public static PircBotX bot;
+	static Map<String, Map<String, String>> logins;
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
 		System.setProperty("http.proxyHost", "wwwcache.york.ac.uk");
 		System.setProperty("http.proxyPort", "8080");
 		System.setProperty("https.proxyHost", "wwwcache.york.ac.uk");
 		System.setProperty("https.proxyPort", "8080");
+		
+		logins = (Map<String, Map<String, String>>) yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/login.json")));
 
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
 				.setName("Morrisey")
@@ -25,7 +34,7 @@ public class Main extends Command {
 				.setVersion("Best Rabbit")
 				.setAutoNickChange(true)
 				.setCapEnabled(true)
-				.addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide"))
+				.addCapHandler(new SASLCapHandler(logins.get("nickserv").get("user"), logins.get("nickserv").get("pass")))
 				.addListener(new Main())
 				.setServerHostname("chat.freenode.net")
 				.addAutoJoinChannel("#YSTV")
@@ -42,8 +51,8 @@ public class Main extends Command {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
-		if (!event.getBot().getNick().equals("Morrisey")) {
-			event.getBot().sendRaw().rawLineNow("NICK Morrisey");
+		if (!event.getBot().getNick().equals(logins.get("nickserv").get("user"))) {
+			event.getBot().sendRaw().rawLineNow("NICK " + logins.get("nickserv").get("user"));
 		}
 	}
 
