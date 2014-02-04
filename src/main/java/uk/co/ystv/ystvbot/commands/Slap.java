@@ -29,7 +29,9 @@ public class Slap extends Command {
 
 	@Override
 	public void onMessage(MessageEvent<PircBotX> event) throws Exception {
-		if (event.getMessage().startsWith("!slap")) {
+		if (event.getMessage().startsWith("!slap") && event.getMessage().length() > 6) {
+			String target = event.getMessage().substring(6);
+
 			String output = this.templates.get(this.random.nextInt(this.templates.size()));
 			Matcher matcher = this.pattern.matcher(output);
 
@@ -39,7 +41,7 @@ public class Slap extends Command {
 				String replacement = "";
 
 				if (group.equalsIgnoreCase("user")) {
-					replacement = event.getUser().getNick();
+					replacement = target;
 				} else {
 					List<String> part = this.parts.get(group);
 					replacement = part.get(this.random.nextInt(part.size()));
