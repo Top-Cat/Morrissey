@@ -54,9 +54,14 @@ public class Events extends Command {
 		} else if (event.getMessage().equalsIgnoreCase("!currentevents")) {
 			Sql sql = Sql.getInstance();
 			ResultSet result = sql.query("SELECT name, end_time, location FROM events WHERE date_trunc('day', start_date) = date_trunc('day', now()) AND end_time > current_time AND is_private = FALSE AND is_cancelled = FALSE ORDER BY start_date ASC");
+			boolean empty = true;
 			try {
 				while (result.next()) {
 					event.respond("'" + result.getString("name") + "' in '" + result.getString("location") + "' ending at '" + result.getString("end_time") + "'");
+					empty = false;
+				}
+				if (empty) {
+					event.respond("Morrissey's slumber party in 'YSTV'");
 				}
 			} catch (SQLException e) {
 				event.respond("Error getting events, sorry :(");
