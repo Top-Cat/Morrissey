@@ -29,6 +29,7 @@ public class Main extends Command {
 				.addListener(new Main())
 				.setServerHostname("chat.freenode.net")
 				.addAutoJoinChannel("#YSTV")
+				.setMessageDelay(0)
 				.setAutoReconnect(true);
 
 		for (Command listener : Commands.listeners) {
