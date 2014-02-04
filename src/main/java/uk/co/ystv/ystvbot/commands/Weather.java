@@ -39,7 +39,7 @@ public class Weather extends Command {
 		}
 		return "Unknown";
 	}
-	
+
 	@Override
 	String[] helpText() {
 		return new String[] {

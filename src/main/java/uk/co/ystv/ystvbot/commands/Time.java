@@ -12,7 +12,7 @@ public class Time extends Command {
 			event.respond("The time is now " + time);
 		}
 	}
-	
+
 	@Override
 	String[] helpText() {
 		return new String[] {

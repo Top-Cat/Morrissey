@@ -36,7 +36,7 @@ public class Coin extends Command {
 			}
 		}
 	}
-	
+
 	@Override
 	String[] helpText() {
 		return new String[] {

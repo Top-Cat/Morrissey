@@ -30,7 +30,7 @@ public enum Commands {
 		for (Commands cmd : Commands.values()) {
 			try {
 				final Constructor<? extends Command> c = cmd.clazz.getDeclaredConstructor(new Class[] {});
-				Command obj = c.newInstance(); 
+				Command obj = c.newInstance();
 				Commands.listeners.add(obj);
 				cmd.setObj(obj);
 			} catch (final NoSuchMethodException e) {

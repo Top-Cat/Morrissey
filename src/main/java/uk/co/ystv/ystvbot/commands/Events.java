@@ -64,7 +64,7 @@ public class Events extends Command {
 			}
 		}
 	}
-	
+
 	@Override
 	String[] helpText() {
 		return new String[] {

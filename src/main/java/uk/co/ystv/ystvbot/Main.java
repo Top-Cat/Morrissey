@@ -24,8 +24,8 @@ public class Main extends Command {
 		System.setProperty("http.proxyPort", "8080");
 		System.setProperty("https.proxyHost", "wwwcache.york.ac.uk");
 		System.setProperty("https.proxyPort", "8080");
-		
-		logins = (Map<String, Map<String, String>>) yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/login.json")));
+
+		Main.logins = (Map<String, Map<String, String>>) Main.yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/login.json")));
 
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
 				.setName("Morrisey")
@@ -34,7 +34,7 @@ public class Main extends Command {
 				.setVersion("Best Rabbit")
 				.setAutoNickChange(true)
 				.setCapEnabled(true)
-				.addCapHandler(new SASLCapHandler(logins.get("nickserv").get("user"), logins.get("nickserv").get("pass")))
+				.addCapHandler(new SASLCapHandler(Main.logins.get("nickserv").get("user"), Main.logins.get("nickserv").get("pass")))
 				.addListener(new Main())
 				.setServerHostname("chat.freenode.net")
 				.addAutoJoinChannel("#YSTV")
@@ -51,8 +51,8 @@ public class Main extends Command {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
-		if (!event.getBot().getNick().equals(logins.get("nickserv").get("user"))) {
-			event.getBot().sendRaw().rawLineNow("NICK " + logins.get("nickserv").get("user"));
+		if (!event.getBot().getNick().equals(Main.logins.get("nickserv").get("user"))) {
+			event.getBot().sendRaw().rawLineNow("NICK " + Main.logins.get("nickserv").get("user"));
 		}
 	}
 

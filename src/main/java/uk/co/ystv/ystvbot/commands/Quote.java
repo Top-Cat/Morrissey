@@ -37,7 +37,7 @@ public class Quote extends Command {
 			}
 		}
 	}
-	
+
 	@Override
 	String[] helpText() {
 		return new String[] {
