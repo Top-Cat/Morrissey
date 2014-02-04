@@ -21,7 +21,7 @@ public class Kill extends Command {
 
 	@SuppressWarnings("unchecked")
 	public Kill() {
-		this.pattern = Pattern.compile("\\{[a-z]+\\}");
+		this.pattern = Pattern.compile("\\{[a-z_]+\\}");
 		Map<String, Object> config = (Map<String, Object>) Main.yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/kills.json")));
 		this.templates = (List<String>) config.get("templates");
 		this.parts = (Map<String, List<String>>) config.get("parts");

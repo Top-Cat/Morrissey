@@ -21,7 +21,7 @@ public class Slap extends Command {
 
 	@SuppressWarnings("unchecked")
 	public Slap() {
-		this.pattern = Pattern.compile("\\{[a-z]+\\}");
+		this.pattern = Pattern.compile("\\{[a-z_]+\\}");
 		Map<String, Object> config = (Map<String, Object>) Main.yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/slaps.json")));
 		this.templates = (List<String>) config.get("templates");
 		this.parts = (Map<String, List<String>>) config.get("parts");
