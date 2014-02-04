@@ -14,17 +14,21 @@ public class Help extends Command {
 			ircout.notice(event.getUser().getNick(), "YSTV Morrissey bot - Top_Cat 2014!");
 			ircout.notice(event.getUser().getNick(), "Avaliable commands:");
 			
-			String helpText = null;
+			String[] helpTexts = null;
 			for (Commands cmd : Commands.values()) {
-				if ((helpText = cmd.getObj().helpText()) != null) {
-					ircout.notice(event.getUser().getNick(), helpText);
+				if ((helpTexts = cmd.getObj().helpText()) != null) {
+					for (String helpText : helpTexts) {
+						ircout.notice(event.getUser().getNick(), helpText);
+					}
 				}
 			}
 		}
 	}
 	
 	@Override
-	String helpText() {
-		return "!help - such meta, so help";
+	String[] helpText() {
+		return new String[] {
+				"!help - such meta, so help"
+		};
 	}
 }

@@ -41,8 +41,10 @@ public class Weather extends Command {
 	}
 	
 	@Override
-	String helpText() {
-		return "!weather - Looks outside so you don't have to!";
+	String[] helpText() {
+		return new String[] {
+				"!weather - Looks outside so you don't have to!"
+		};
 	}
 
 }

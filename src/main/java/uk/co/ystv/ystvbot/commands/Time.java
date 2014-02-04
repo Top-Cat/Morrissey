@@ -14,8 +14,10 @@ public class Time extends Command {
 	}
 	
 	@Override
-	String helpText() {
-		return "!time - Mr Wolf.exe";
+	String[] helpText() {
+		return new String[] {
+				"!time - Mr Wolf.exe"
+		};
 	}
 
 }

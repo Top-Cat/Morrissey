@@ -39,8 +39,10 @@ public class Quote extends Command {
 	}
 	
 	@Override
-	String helpText() {
-		return "!quote [query] - Returns a random quote!";
+	String[] helpText() {
+		return new String[] {
+				"!quote [query] - Returns a random quote!"
+		};
 	}
 
 }

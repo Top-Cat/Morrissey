@@ -5,7 +5,7 @@ import org.pircbotx.hooks.ListenerAdapter;
 
 public abstract class Command extends ListenerAdapter<PircBotX> {
 	
-	String helpText() {
+	String[] helpText() {
 		return null;
 	}
 	

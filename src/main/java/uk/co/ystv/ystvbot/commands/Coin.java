@@ -38,8 +38,10 @@ public class Coin extends Command {
 	}
 	
 	@Override
-	String helpText() {
-		return "!coin [number] - Since the committee frowns upon duels, this is the next best way to settle your disputes!";
+	String[] helpText() {
+		return new String[] {
+				"!coin [number] - Since the committee frowns upon duels, this is the next best way to settle your disputes!"
+		};
 	}
 
 }

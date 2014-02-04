@@ -66,8 +66,11 @@ public class Events extends Command {
 	}
 	
 	@Override
-	String helpText() {
-		return "!nextevent - Upcoming events! / !currentevents - What's happening now?";
+	String[] helpText() {
+		return new String[] {
+				"!nextevent - Upcoming events!",
+				"!currentevents - What's happening now?"
+		};
 	}
 
 }
