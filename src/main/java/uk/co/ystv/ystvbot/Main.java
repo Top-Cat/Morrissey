@@ -27,7 +27,7 @@ public class Main extends Command {
 				.setCapEnabled(true)
 				.addCapHandler(new SASLCapHandler("Morrisey", "rubberprovideproductwide"))
 				.addListener(new Main())
-				.setServerHostname("holmes.freenode.net")
+				.setServerHostname("chat.freenode.net")
 				.addAutoJoinChannel("#YSTV")
 				.setAutoReconnect(true);
 
