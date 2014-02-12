@@ -28,9 +28,9 @@ public class Main extends Command {
 		Main.logins = (Map<String, Map<String, String>>) Main.yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/login.json")));
 
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
-				.setName("Morrisey")
+				.setName("Morrissey")
 				.setRealName("Best Rabbit")
-				.setLogin("Morrisey")
+				.setLogin("Morrissey")
 				.setVersion("Best Rabbit")
 				.setAutoNickChange(true)
 				.setCapEnabled(true)
