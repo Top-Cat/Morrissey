@@ -16,6 +16,7 @@ public class Main extends Command {
 
 	public static Yaml yaml = new Yaml();
 	public static PircBotX bot;
+	private final static String name = "Morrissey";
 	static Map<String, Map<String, String>> logins;
 
 	@SuppressWarnings("unchecked")
@@ -28,9 +29,9 @@ public class Main extends Command {
 		Main.logins = (Map<String, Map<String, String>>) Main.yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/login.json")));
 
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
-				.setName("Morrissey")
+				.setName(name)
 				.setRealName("Best Rabbit")
-				.setLogin("Morrissey")
+				.setLogin(name)
 				.setVersion("Best Rabbit")
 				.setAutoNickChange(true)
 				.setCapEnabled(true)
@@ -51,8 +52,8 @@ public class Main extends Command {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
-		if (!event.getBot().getNick().equals(Main.logins.get("nickserv").get("user"))) {
-			event.getBot().sendRaw().rawLineNow("NICK " + Main.logins.get("nickserv").get("user"));
+		if (!event.getBot().getNick().equals(name)) {
+			event.getBot().sendRaw().rawLineNow("NICK " + name);
 		}
 	}
 
