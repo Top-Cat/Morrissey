@@ -17,7 +17,8 @@ public enum Commands {
 	Events(Events.class),
 	Help(Help.class),
 	Slap(Slap.class),
-	Kill(Kill.class);
+	Kill(Kill.class),
+	Flooded(Flooded.class);
 
 	public static Set<Command> listeners = new HashSet<Command>();
 
