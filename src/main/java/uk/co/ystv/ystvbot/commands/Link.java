@@ -7,6 +7,7 @@ import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import uk.co.ystv.ystvbot.util.GetTitle;
+import uk.co.ystv.ystvbot.util.TitleResponse;
 
 public class Link extends Command {
 
@@ -21,9 +22,9 @@ public class Link extends Command {
 		Matcher matcher = this.pattern.matcher(event.getMessage());
 
 		while (matcher.find()) {
-			String[] title = GetTitle.get(matcher.group());
-			if (title != null) {
-				event.respond(title[1] + " - " + title[0]);
+			TitleResponse title = GetTitle.get(matcher.group());
+			if (title != null && title.getDepth() > 0) {
+				event.respond(title.getUrl() + " - " + title.getTitle());
 			}
 		}
 	}

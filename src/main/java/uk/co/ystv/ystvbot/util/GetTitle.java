@@ -21,11 +21,11 @@ public class GetTitle {
 	private static String endTag = "</title>";
 	private static int startTagLength = GetTitle.startTag.length();
 
-	public static String[] get(String string) {
+	public static TitleResponse get(String string) {
 		return GetTitle.get(string, 0);
 	}
 
-	public static String[] get(String string, int depth) {
+	public static TitleResponse get(String string, int depth) {
 		if (depth > 10) {
 			return null;
 		}
@@ -88,7 +88,7 @@ public class GetTitle {
 
 			// output the title
 			if (title.length() > 0) {
-				return new String[] { title, string };
+				return new TitleResponse(string, title, depth);
 			} else {
 				return null;
 			}
