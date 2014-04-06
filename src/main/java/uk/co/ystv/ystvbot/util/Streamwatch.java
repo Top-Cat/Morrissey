@@ -10,7 +10,6 @@ public class Streamwatch implements Runnable{
     	try {
 			start();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
@@ -31,7 +30,12 @@ public class Streamwatch implements Runnable{
             fromClient = in.readLine();
             System.out.println("received: " + fromClient);
             
-            Main.bot.sendIRC().message("#YSTVfiringrange", fromClient);
+            try {
+            	Main.bot.sendIRC().message("#YSTV", fromClient);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+            
         }
         System.exit(0);
     }

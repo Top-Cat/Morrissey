@@ -20,7 +20,7 @@ public class Main extends Command {
 	public static Yaml yaml = new Yaml();
 	public static PircBotX bot;
 	public static Streamwatch streamwatch = new Streamwatch();
-	private final static String name = "MorrisseyTEST";
+	private final static String name = "Morrissey";
 	static Map<String, Map<String, String>> logins;
 
 	@SuppressWarnings("unchecked")
@@ -38,11 +38,11 @@ public class Main extends Command {
 				.setLogin(name)
 				.setVersion("Best Rabbit")
 				.setAutoNickChange(true)
-				.setCapEnabled(false)
+				.setCapEnabled(true)
 				.addCapHandler(new SASLCapHandler(Main.logins.get("nickserv").get("user"), Main.logins.get("nickserv").get("pass")))
 				.addListener(new Main())
 				.setServerHostname("chat.freenode.net")
-				.addAutoJoinChannel("#YSTVfiringrange")
+				.addAutoJoinChannel("#YSTV")
 				.setMessageDelay(0)
 				.setAutoReconnect(true);
 
@@ -63,10 +63,8 @@ public class Main extends Command {
 				  try {
 					Main.bot.startBot();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IrcException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			  }
