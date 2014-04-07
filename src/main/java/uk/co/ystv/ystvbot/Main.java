@@ -11,11 +11,13 @@ import org.yaml.snakeyaml.Yaml;
 
 import uk.co.ystv.ystvbot.commands.Command;
 import uk.co.ystv.ystvbot.commands.Commands;
+import uk.co.ystv.ystvbot.util.Streamwatch;
 
 public class Main extends Command {
 
 	public static Yaml yaml = new Yaml();
 	public static PircBotX bot;
+	public static Streamwatch streamwatch = new Streamwatch();
 	private final static String name = "Morrissey";
 	static Map<String, Map<String, String>> logins;
 
@@ -47,7 +49,19 @@ public class Main extends Command {
 		}
 
 		Main.bot = new PircBotX(builder.buildConfiguration());
-		Main.bot.startBot();
+
+		new Thread() {
+			public void run() {
+				while (true) {
+					try {
+						Main.bot.startBot();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+		new Streamwatch().start();
 	}
 
 	@Override
