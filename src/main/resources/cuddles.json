@@ -1,0 +1,67 @@
+{
+   "templates":[
+      "{verbs} {user} with {items}.",
+      "{verbs} {user} around a bit with {items}.",
+      "{throws} {items} at {user}.",
+      "launches {items} in {user}'s general direction.",
+      "sits on {user}'s face while slamming {items} into their crotch.",
+      "starts slapping {user} silly with {items}.",
+      "holds {user} down and repeatedly {verbs} them with {items}.",
+      "drenches {user} in {items}.",
+      "picks up a {item} and {verbs} {user} with it.",
+      "ties {user} to a chair and {throws} a {item} at them.",
+      "{verbs} {user} {where} with {items}.",
+      "ties {user} to a pole and whips them with a {item}, just how they like it.",
+      "{user} is a dirty, dirty YSTVer."
+   ],
+   "parts": {
+      "items":[
+         "kisses",
+         "hugs",
+         "love",
+         "adoration",
+         "understanding",
+         "compassion",
+         "respect",
+         "Love Hearts®",
+         "human-juice",
+         "NaSTAs",
+         "FLOPPYs",
+         "LloydsPenis",
+         "a roll of duct tape",
+         "rubbers"
+         "Lloyd Wallis"
+      ],
+      "item":[
+         "personalised love token",
+         "stain",
+         "NaSTA",
+         "roll of duct tape",
+         "rubber"
+      ],
+      "throws": [
+        "launches",
+        "flings",
+        "unleashes",
+        "sprays"
+      ],
+      "verbs": [
+        "attacks",
+        "glomps",
+        "jiggles",
+        "smothers",
+        "pets",
+        "comforts",
+        "soothes",
+        "incapacitates",
+        "fulfils a restraining order from"
+      ],
+      "where": [
+        "in the face",
+        "on the head",
+        "on the cheek",
+        "on the bum",
+        "in their special place"
+      ]
+   }
+}
