@@ -1,0 +1,104 @@
+{
+   "templates":[
+      "tickles {user} with a {tool}.",
+      "chases {user} around the room with a {tool}.",
+      "{hugs} {user} with {emotion}.",
+      "{throws} a few {item}s to {user}.",
+      "grabs a {item} and {throws} it to {user}.",
+      "launches a {item} in {user}'s general direction.",
+      "sits on {user}'s lap while handing a {item} to them with {emotion}.",
+      "smiles at {user} with {emotion}.",
+      "sits {user} down and presents them with a {item}.",
+      "prods {user} fondly with a {tool}.",
+      "picks up a {item} and awards it to {user}.",
+      "kisses {user} on the forearm and looks at them with {emotion}.",
+      "{hugs} {user} and buys them a {item}.",
+      "breaks the {equipment} and blames it on {user}",
+      "trips over the {equipment} and falls into {user}'s lap",
+      "ties {user} to a pole and rubs them with a {item} fondly.",
+      "smashes a {item} into the face of {user}",
+      "unleashes a rabid horde of {animal}s on {user}",
+      "pets a {animal} while staring at {user}",
+      "rides towards {user} on a {animal} yelling threats",
+      "puts a {equipment} on a {animal} just to see what happens",
+   ],
+   "parts": {
+      "item":[
+         "chocolate",
+         "flower",
+         "wine bottle",
+         "medal",
+         "kitten",
+         "panties",
+         "beer",
+         "ceramic unicorns",
+         "pokemon",
+         "bowler hat",
+         "penknife",
+         "skittles",
+         "cheque",
+         
+      ],
+      "animal": [
+         "bear",
+         "wolfie",
+         "cat",
+         "dinosaur",
+         "dragon",
+         "leopard",
+         "snail",
+         "hedgehog",
+         "rhino",]
+         
+      ],
+      "equipment": [
+         "cameras",
+         "lighting rig",
+         "boom pole",
+         "rifle mic",
+         "Zoom H2N",
+         "YSTV laptop",]
+        
+      ],
+      "tool": [
+         "feather",
+         "duster",
+         "silk handkerchief",
+         "bra strap",
+         "cable tie",
+         "penis",
+        
+      ],
+      "emotion": [
+         "fondness",
+         "affection",
+         "gratitude",
+         "lust",
+         "love",
+         "fear",
+         "humour",
+         "uncertainty",
+         "an air of indifference",
+        
+      ],
+      "throws": [
+        "throws",
+        "passes",
+        "gives",
+        "chucks",
+        "lobs",
+        "rolls",
+        "shoves",
+        "pushes",
+        
+      ],
+      "hugs": [
+        "hugs",
+        "cuddles",
+        "embraces",
+        "snuggles",
+        "touches",
+        
+      ]
+   }
+}
