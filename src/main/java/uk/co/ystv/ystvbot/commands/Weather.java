@@ -31,7 +31,16 @@ public class Weather extends Command {
 			Map<String, Object> wind = (Map<String, Object>) map.get("wind");
 			map = (Map<String, Object>) list.get(0);
 			String[] dirs = new String[] { "N", "NE", "E", "SE", "S", "SW", "W", "NW" };
-			String wind_direction = dirs[(((Double) wind.get("deg")).intValue() + 22) / 45 % 8];
+
+			int deg = 0;
+			Object degObj = wind.get("deg");
+			if (degObj instanceof Double) {
+				deg = ((Double) wind.get("deg")).intValue();
+			} else if (degObj instanceof Integer) {
+				deg = (Integer) wind.get("deg");
+			}
+
+			String wind_direction = dirs[(deg + 22) / 45 % 8];
 
 			return map.get("main") + ", Wind: " + wind.get("speed") + "m/s (" + wind_direction + "), Temperature: " + main.get("temp") + "C (Min: " + main.get("temp_min") + "C, Max: " + main.get("temp_max") + "C)";
 		} catch (MalformedURLException e) {
