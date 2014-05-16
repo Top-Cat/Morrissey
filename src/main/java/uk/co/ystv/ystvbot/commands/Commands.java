@@ -16,7 +16,7 @@ public enum Commands {
 	Coin(Coin.class),
 	Events(Events.class),
 	Help(Help.class),
-	Kill(Actions.class),
+	Actions(Actions.class),
 	Flooded(Flooded.class);
 
 	public static Set<Command> listeners = new HashSet<Command>();
