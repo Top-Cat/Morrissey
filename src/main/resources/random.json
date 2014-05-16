@@ -20,7 +20,7 @@
       "unleashes a rabid horde of {animal}s on {user}",
       "pets a {animal} while staring at {user}",
       "rides towards {user} on a {animal} yelling threats",
-      "puts a {equipment} on a {animal} just to see what happens",
+      "puts a {equipment} on a {animal} just to see what happens"
    ],
    "parts": {
       "item":[
@@ -36,7 +36,7 @@
          "bowler hat",
          "penknife",
          "skittles",
-         "cheque",
+         "cheque"
          
       ],
       "animal": [
@@ -48,7 +48,7 @@
          "leopard",
          "snail",
          "hedgehog",
-         "rhino",
+         "rhino"
          
       ],
       "equipment": [
@@ -57,7 +57,7 @@
          "boom pole",
          "rifle mic",
          "Zoom H2N",
-         "YSTV laptop",
+         "YSTV laptop"
         
       ],
       "tool": [
@@ -66,7 +66,7 @@
          "silk handkerchief",
          "bra strap",
          "cable tie",
-         "penis",
+         "penis"
         
       ],
       "emotion": [
@@ -78,7 +78,7 @@
          "fear",
          "humour",
          "uncertainty",
-         "an air of indifference",
+         "an air of indifference"
         
       ],
       "throws": [
@@ -89,7 +89,7 @@
         "lobs",
         "rolls",
         "shoves",
-        "pushes",
+        "pushes"
         
       ],
       "hugs": [
@@ -97,7 +97,7 @@
         "cuddles",
         "embraces",
         "snuggles",
-        "touches",
+        "touches"
         
       ]
    }
