@@ -44,8 +44,8 @@ public class Actions extends Command {
 	}
 
 	private void processAction(MessageEvent<PircBotX> event, String action) {
-		if (event.getMessage().length() > 6) {
-			String target = event.getMessage().substring(6);
+		if (event.getMessage().length() > action.length() + 2) {
+			String target = event.getMessage().substring(action.length() + 2);
 
 			String output = this.templates.get(action).get(this.random.nextInt(this.templates.get(action).size()));
 			Matcher matcher = this.pattern.matcher(output);
