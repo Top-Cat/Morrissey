@@ -1,0 +1,53 @@
+{
+   "templates":[
+      "tickles {user} with a {tool}.",
+      "chases {user} around the room with a {tool}.",
+      "{hugs} {user} with {emotion}.",
+      "{throws} a few {item}s to {user}.",
+      "grabs a {item} and {throws} it to {user}.",
+      "launches a {item} in {user}'s general direction.",
+      "sits on {user}'s lap while handing a {item} to them with {emotion}.",
+      "smiles at {user} with {emotion}.",
+      "sits {user} down and presents them with a {item}.",
+      "prods {user} fondly with a {tool}.",
+      "picks up a {item} and awards it to {user}.",
+      "kisses {user} on the forearm and looks at them with {emotion}.",
+      "{hugs} {user} and buys them a {item}.",
+      "ties {user} to a pole and rubs them with a {item} fondly."
+   ],
+   "parts": {
+      "item":[
+         "chocolate",
+         "flower",
+         "wine bottle",
+         "medal",
+         "kitten",
+        
+      ],
+      "tool": [
+         "feather",
+         "duster",
+         "silk handkerchief",
+        
+      ],
+      "emotion": [
+         "fondness",
+         "affection",
+         "gratitude",
+         "lust",
+         "love",
+        
+      ],
+      "throws": [
+        "throws",
+        "passes",
+        "gives"
+      ],
+      "hugs": [
+        "hugs",
+        "cuddles",
+        "embraces",
+        
+      ]
+   }
+}

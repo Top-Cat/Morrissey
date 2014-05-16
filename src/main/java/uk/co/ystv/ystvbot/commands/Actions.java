@@ -15,8 +15,8 @@ import uk.co.ystv.ystvbot.Main;
 
 public class Actions extends Command {
 
-	private String[] actions = new String[] { "kill", "slap", "cuddle" };
-	private String[] descriptions = new String[] { "!kill <user> - Might be a bit too far", "!slaps <user> - Settle your differences the old fashioned way", "!cuddle <user> - Spread the YSTV love" };
+	private String[] actions = new String[] { "kill", "slap", "cuddle", "reward" };
+	private String[] descriptions = new String[] { "!kill <user> - Might be a bit too far", "!slaps <user> - Settle your differences the old fashioned way", "!cuddle <user> - Spread the YSTV love", "!reward <user> - Helen will reward you?" };
 
 	private Map<String, List<String>> templates = new HashMap<String, List<String>>();
 	private Map<String, Map<String, List<String>>> parts = new HashMap<String, Map<String, List<String>>>();
