@@ -14,7 +14,9 @@ public class Weather extends Command {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent<PircBotX> event) throws Exception {
-		if (event.getMessage().equalsIgnoreCase("!weather")) {
+		if (event.getMessage().equals("!WEATHER")) {
+			event.responde("The skies of democracy are brimming with your votes - https://ystv.co.uk/watch/Elections/2014/results/prez-weather/");
+		} else if (event.getMessage().equalsIgnoreCase("!weather")) {
 			event.respond(this.getWeather());
 		}
 	}
