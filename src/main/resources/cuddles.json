@@ -12,7 +12,7 @@
       "ties {user} to a chair and {throws} a {item} at them.",
       "{verbs} {user} {where} with {items}.",
       "ties {user} to a pole and whips them with a {item}, just how they like it.",
-	  "{user} is a dirty, dirty YSTVer."
+      "{user} is a dirty, dirty YSTVer."
    ],
    "parts": {
       "items":[
@@ -20,10 +20,10 @@
          "hugs",
          "love",
          "adoration",
-		 "understanding",
-		 "compassion",
-		 "respect",
-		 "Love Hearts®",
+         "understanding",
+         "compassion",
+         "respect",
+         "Love Hearts®",
          "human-juice",
          "NaSTAs",
          "FLOPPYs",
@@ -43,25 +43,25 @@
         "launches",
         "flings",
         "unleashes",
-		"sprays"
+        "sprays"
       ],
       "verbs": [
         "attacks",
         "glomps",
         "jiggles",
         "smothers",
-		"pets",
-		"comforts",
-		"soothes",
-		"incapacitates",
-		"fulfils a restraining order from"
+        "pets",
+        "comforts",
+        "soothes",
+        "incapacitates",
+        "fulfils a restraining order from"
       ],
       "where": [
         "in the face",
         "on the head",
-		"on the cheek",
+        "on the cheek",
         "on the bum",
-		"in their special place"
+        "in their special place"
       ]
    }
 }
