@@ -23,20 +23,29 @@ public class Sql {
 
 	public Sql() {
 		try {
-			Class.forName("org.postgresql.Driver").newInstance();
-			this.conn = DriverManager.getConnection(Sql.url);
-		} catch (final InstantiationException e) {
-			e.printStackTrace();
-		} catch (final IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (final ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
+			reconnect();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public int update(String sql) {
+	private void reconnect() throws Exception {
+		Class.forName("org.postgresql.Driver").newInstance();
+		this.conn = DriverManager.getConnection(Sql.url);
+	}
+
+	private boolean checkConnection() throws SQLException {
+		return conn != null && !conn.isClosed();
+	}
+
+	private void checkAndFix() throws Exception {
+		if (!checkConnection()) {
+			reconnect();
+		}
+	}
+
+	public int update(String sql) throws Exception {
+		checkAndFix();
 		try {
 			final PreparedStatement pr = this.conn.prepareStatement(sql);
 			int count = pr.executeUpdate();
@@ -47,7 +56,8 @@ public class Sql {
 		return 0;
 	}
 
-	public int insert(String sql, Object[] values) {
+	public int insert(String sql, Object[] values) throws Exception {
+		checkAndFix();
 		try {
 			final PreparedStatement pr = this.conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			if (values != null) {
@@ -66,11 +76,12 @@ public class Sql {
 		return 0;
 	}
 
-	public ResultSet query(String sql) {
+	public ResultSet query(String sql) throws Exception {
 		return this.query(sql, null);
 	}
 
-	public ResultSet query(String sql, Object[] values) {
+	public ResultSet query(String sql, Object[] values) throws Exception {
+		checkAndFix();
 		try {
 			final PreparedStatement pr = this.conn.prepareStatement(sql);
 			if (values != null) {
