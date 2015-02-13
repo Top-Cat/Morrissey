@@ -12,6 +12,7 @@ import org.yaml.snakeyaml.Yaml;
 import uk.co.ystv.ystvbot.commands.Command;
 import uk.co.ystv.ystvbot.commands.Commands;
 import uk.co.ystv.ystvbot.util.Streamwatch;
+import uk.co.ystv.ystvbot.util.RigUpdate;
 
 public class Main extends Command {
 
@@ -62,6 +63,7 @@ public class Main extends Command {
 			}
 		}.start();
 		new Streamwatch().start();
+		new RigUpdate().start();
 	}
 
 	@Override
