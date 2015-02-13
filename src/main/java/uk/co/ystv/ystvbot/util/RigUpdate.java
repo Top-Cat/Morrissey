@@ -40,7 +40,6 @@ public class RigUpdate extends Thread{
 			bufReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
 			while ((line = bufReader.readLine()) != null) {
-				System.out.println(line);
 				if (found == false && line.toLowerCase().contains("<div class=\"project-amount-raised\">")) {
 					found = true;
 				}
