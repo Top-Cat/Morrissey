@@ -18,17 +18,13 @@ public class Main extends Command {
 
 	public static Yaml yaml = new Yaml();
 	public static PircBotX bot;
-	public static Streamwatch streamwatch = new Streamwatch();
+	public static Streamwatch streamWatch = new Streamwatch();
+	public static RigUpdate rigUpdate = new RigUpdate();
 	private final static String name = "Morrissey";
 	static Map<String, Map<String, String>> logins;
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws Exception {
-		System.setProperty("http.proxyHost", "wwwcache.york.ac.uk");
-		System.setProperty("http.proxyPort", "8080");
-		System.setProperty("https.proxyHost", "wwwcache.york.ac.uk");
-		System.setProperty("https.proxyPort", "8080");
-
 		Main.logins = (Map<String, Map<String, String>>) Main.yaml.load(new InputStreamReader(Main.class.getResourceAsStream("/login.json")));
 
 		Configuration.Builder<PircBotX> builder = new Configuration.Builder<PircBotX>()
@@ -62,8 +58,8 @@ public class Main extends Command {
 				}
 			}
 		}.start();
-		new Streamwatch().start();
-		new RigUpdate().start();
+		streamWatch.start();
+		rigUpdate.start();
 	}
 
 	@Override

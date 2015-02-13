@@ -6,19 +6,23 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import lombok.Getter;
 import uk.co.ystv.ystvbot.Main;
 
-public class RigUpdate extends Thread{
-	
+public class RigUpdate extends Thread {
+
+	@Getter int rigTotal = 0;
+
 	public void run() {
 		while (true) {
 			try {
-				String previousAmount = RigUpdate.getRigTotal();
+				doUpdate();
+				int previousAmount = rigTotal;
 				while (true) {
-					String checkAmount = RigUpdate.getRigTotal();
-					if(!checkAmount.equals(previousAmount)){
-						Main.bot.sendIRC().message("#YSTV", "New Rig donation! New total is £" + checkAmount + ". Up from £" + previousAmount + ".");
-						previousAmount = checkAmount;
+					doUpdate();
+					if (rigTotal > previousAmount) {
+						Main.bot.sendIRC().message("#YSTV", "New Rig donation! New total is £" + rigTotal + ". Up from £" + previousAmount + ".");
+						previousAmount = rigTotal;
 					}
 					Thread.sleep(300000);
 				}
@@ -27,12 +31,12 @@ public class RigUpdate extends Thread{
 			}
 		}
 	}
-	
-	public static String getRigTotal() {
+
+	public int doUpdate() {
 
 		BufferedReader bufReader;
 		String line;
-		Boolean found = false; 
+		Boolean found = false;
 
 		try {
 			URL url = new URL("https://yustart.hubbub.net/p/ystv-rig/");
@@ -42,16 +46,15 @@ public class RigUpdate extends Thread{
 			while ((line = bufReader.readLine()) != null) {
 				if (found == false && line.toLowerCase().contains("<div class=\"project-amount-raised\">")) {
 					found = true;
-				}
-				else if(found == true){
+				} else if (found == true) {
 					bufReader.close();
-					return line.replaceAll("\\s+£","");
+					rigTotal = Integer.parseInt(line.replaceAll("\\s+£", ""));
+					break;
 				}
 			}
-			return null;
 		} catch (IOException e) {
-			return null;
+			e.printStackTrace();
 		}
+		return rigTotal;
 	}
 }
-
