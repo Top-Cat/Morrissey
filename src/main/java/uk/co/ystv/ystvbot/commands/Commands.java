@@ -17,8 +17,7 @@ public enum Commands {
 	Events(Events.class),
 	Help(Help.class),
 	Actions(Actions.class),
-	Flooded(Flooded.class),
-	RigStat(RigStat.class);
+	Flooded(Flooded.class);
 
 	public static Set<Command> listeners = new HashSet<Command>();
 
